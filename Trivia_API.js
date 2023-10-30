@@ -68,10 +68,10 @@ async function getData() {
       `https://opentdb.com/api.php?amount=1&category=${selectedOption}&difficulty=${selectedDifficulty}`,
       opt
     );
-    const data = await res.json();
-    let questions = null;
-    let correctAnswer = null;
-    let incorrectAnswers = [];
+        const data = await res.json();
+        let questions = null;
+        let correctAnswer = null;
+        let incorrectAnswers = [];
     let lists = [];
     let ul = document.querySelector("ul");
     while (ul.firstChild) {
@@ -79,50 +79,50 @@ async function getData() {
     }
     data.results.forEach((result) => {
       questions = result.question;
-      correctAnswer = result.correct_answer;
-      incorrectAnswers = result.incorrect_answers;
-    });
+           correctAnswer = result.correct_answer;
+           incorrectAnswers = result.incorrect_answers;
+        });
+        
+let allAnswers = incorrectAnswers.concat(correctAnswer);
+        setTimeout(() => {
+        allAnswers.sort();
 
-    let allAnswers = incorrectAnswers.concat(correctAnswer);
-    setTimeout(() => {
-      allAnswers.sort();
+        const b = (document.getElementById("ques").innerHTML = questions);
+        
+         allAnswers.forEach((answer) => {
+            let li = document.createElement("li");
+            
+            li.innerText = answer;
+            li.setAttribute("class", "answer-opt");
+            ul.appendChild(li);
+        });
+    
+        lists = ul.childNodes;
 
-      const b = (document.getElementById("ques").innerHTML = questions);
+        ul.addEventListener("click", match(lists));
+        
+        function match(lists) {
+            lists.forEach((list) => {
+                list.onclick = function () {
+                    if (this.innerHTML == correctAnswer) {
+                        list.setAttribute("class", "correct-answer"); 
+                        pointsEarned = pointsEarned + 1;
 
-      allAnswers.forEach((answer) => {
-        let li = document.createElement("li");
-
-        li.innerText = answer;
-        li.setAttribute("class", "answer-opt");
-        ul.appendChild(li);
-      });
-
-      lists = ul.childNodes;
-
-      ul.addEventListener("click", match(lists));
-
-      function match(lists) {
-        lists.forEach((list) => {
-          list.onclick = function () {
-            if (this.innerHTML == correctAnswer) {
-              list.setAttribute("class", "correct-answer");
-              pointsEarned = pointsEarned + 1;
-
-              setTimeout(() => {
-                while (ul.firstChild) {
-                  ul.removeChild(ul.firstChild);
-                }
-                return;
-              }, 3000);
+                        setTimeout(() => {
+                            while (ul.firstChild) {
+                                ul.removeChild(ul.firstChild);
+                            }
+                            return;
+                        }, 3000);
             } else {
-              list.setAttribute("class", "incorrect-answer");
-              let liElement = document.querySelectorAll("answer-opt");
-
-              setTimeout(() => {
-                while (ul.firstChild) {
-                  ul.removeChild(ul.firstChild);
-                }
-                return;
+                        list.setAttribute("class", "incorrect-answer");
+                        let liElement = document.querySelectorAll("answer-opt");
+                        
+                        setTimeout(() => {
+                            while (ul.firstChild) {
+                                ul.removeChild(ul.firstChild);
+                            }
+                            return;
               }, 3000);
             }
             const b = (document.getElementById("ques").innerHTML =
@@ -130,12 +130,12 @@ async function getData() {
             getData();
           };
         });
-      }
+        }
     }, 3000);
-  } catch (error) {
-    console.log("Error", error);
-  }
-  if (pointsEarned === null || undefined || NaN || 0) {
+  } catch (error) {  
+        console.log("Error", error);
+    }
+if (pointsEarned === null || undefined || NaN || 0) {
     a = document.getElementById("points-field").innerHTML;
   } else {
     a = document.getElementById(

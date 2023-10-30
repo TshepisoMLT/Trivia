@@ -39,11 +39,10 @@ async function categories(){
         
             
     } catch (error) {
-        console.log(error)
+        console.error("ERROR", error);
     }
 }
-
-categories()
+// getDifficulties();
 
 
 

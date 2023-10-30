@@ -1,0 +1,11 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Trivia_API.js",
+  "scripts": {
+    "test": "echo \"Hello"\"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,46 +1,46 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia App</title>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-image: url("./vitaliy-shevchenko-YedTzmwGzdw-unsplash.jpg");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: url("./vitaliy-shevchenko-YedTzmwGzdw-unsplash.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-origin: border-box;
-            display: flex;
-            justify-content: center;
+        display: flex;
+        justify-content: center;
         align-items: center;
         height: 100vh;
         width: 100vw;
-            font-family:
+        font-family:
           Helvetica,
           Gill Sans,
           sans-serif;
-        }
-        .wrapper {
+      }
+      .wrapper {
         color: #fff;
         min-height: 400px;
         max-width: 550px;
         min-width: 200px;
-            display: flex;
-                        justify-content: center;
-            align-items: center;
-            overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
       }
-        #box {
-            width: 100%;
-            border-radius: 10px;
+      #box {
+        width: 100%;
+        border-radius: 10px;
         backdrop-filter: blur(10px);
         border: solid 1px rgba(189, 189, 189, 0.63);
         padding: 10px 5px;
@@ -52,8 +52,8 @@
         height: 40px;
         border-bottom: solid 1px rgba(124, 123, 123, 0.61);
         padding-bottom: 3px;
-            width: 100%;
-            }
+        width: 100%;
+      }
       #box .inputs select {
         border: solid 1px rgba(58, 54, 54, 0.671);
         outline: none;
@@ -84,23 +84,23 @@
       }
       #box .container .question-field {
         margin-block: 30px;
-            display: flex;
-            padding-inline: 5px;
+        display: flex;
+        padding-inline: 5px;
         font-size: 1.25rem;
-            justify-content: center;
-        }
-        #box .container .answers {
+        justify-content: center;
+      }
+      #box .container .answers {
         margin-block: 10px;
-            display: flex;
-            padding-inline: 5px;
+        display: flex;
+        padding-inline: 5px;
         font-size: 1rem;
-            justify-content: center;
+        justify-content: center;
         background-color: rgba(0, 0, 0, 0.6);
         min-width: 100px;
-            padding-block: 20px;
-        }
-        #box .container .answers ul {
-            display: grid;
+        padding-block: 20px;
+      }
+      #box .container .answers ul {
+        display: grid;
         grid-template-columns: auto auto;
         gap: 20px;
       }
@@ -109,20 +109,20 @@
         font-size: 14px;
         appearance: button;
         border: solid 1px rgb(255, 255, 255);
-            border-radius: 5px;
-            padding: 5px;
-display: flex;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
         justify-content: center;
         min-width: 50px;
         align-items: center;
-            cursor: pointer;
-        }
-         #box .container .answers ul li:hover {
+        cursor: pointer;
+      }
+      #box .container .answers ul li:hover {
         background-color: rgba(133, 133, 133, 0.253);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        #box .container .answers ul .correct-answer {
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #box .container .answers ul .correct-answer {
         color: rgb(255, 255, 255);
         border: solid 1px green;
       }
@@ -135,56 +135,62 @@ display: flex;
         color: #ffffff;
         font-size: 14px;
         cursor: pointer;
-            border-radius: 5px;
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            appearance: button;
-        }
-        #box .bottom-field fieldset {
-            outline: none;
-        }
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        appearance: button;
+      }
+      #box .bottom-field{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:30px;
+      }
+      #box .bottom-field #points-field {
+        border: none;
+      }
     </style>
 
-<div class="wrapper">
-    <div id="box">
+    <div class="wrapper">
+      <div id="box">
         <div class="inputs" id="inputs">
-            <select class="category" id="category">
+          <select class="category" id="category">
             <option id="8" disabled selected>Category</option>
-            </select>
+          </select>
 
-            <select id="difficulty" class="difficulty">
-                <option disabled selected>Difficulty</option>
+          <select id="difficulty" class="difficulty">
+            <option disabled selected>Difficulty</option>
             <option id="easy">Easy</option>
-                <option id="medium">Medium</option>
+            <option id="medium">Medium</option>
             <option id="hard">Hard</option>
-            </select>
+          </select>
 
-            <select class="limit" id="limit">
-                <option disabled selected>Limit</option>
+          <select class="limit" id="limit">
+            <option disabled selected>Limit</option>
             <option id="5">5</option>
             <option id="10">10</option>
-                <option id="15">15</option>
-                <option id="20">20</option>
-            </select>
+            <option id="15">15</option>
+            <option id="20">20</option>
+          </select>
         </div>
 
         <div class="container">
-            <div class="question-field" id="question-field">
+          <div class="question-field" id="question-field">
             <p id="ques">Please chose a Category</p>
           </div>
-            <div class="answers" id="answer-id">
-                <ul></ul>
-            </div>
+          <div class="answers" id="answer-id">
+            <ul></ul>
+          </div>
         </div>
-        
+
         <div class="bottom-field">
-            <fieldset class="points-field" id="points-field">Points: 0</fieldset>
+          <fieldset class="points-field" id="points-field">Points: 0</fieldset>
         </div>
-        </div>
+      </div>
     </div>
 
     <script src="./Trivia_API.js"></script>
-    </body>
+  </body>
 </html>
